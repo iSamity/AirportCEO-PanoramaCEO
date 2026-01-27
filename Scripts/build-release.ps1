@@ -36,10 +36,10 @@ $ErrorActionPreference = "Stop"
 
 # Get the repository root (parent of scripts directory)
 $RepoRoot = Split-Path $PSScriptRoot -Parent
-$SolutionFile = Join-Path $RepoRoot "UICeo.sln"
+$SolutionFile = Join-Path $RepoRoot "PanoramaCEO.sln"
 
 Write-Host "==================================================" -ForegroundColor Cyan
-Write-Host "Building UICeo (Release)" -ForegroundColor Cyan
+Write-Host "Building PanoramaCEO (Release)" -ForegroundColor Cyan
 Write-Host "==================================================" -ForegroundColor Cyan
 Write-Host ""
 
