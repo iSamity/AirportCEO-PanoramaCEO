@@ -1,0 +1,15 @@
+[h3]Note[/h3]
+This mod requires the [url=https://steamcommunity.com/sharedfiles/filedetails/?id=3109136766]AirportCEO Mod Loader[/url] to function. Please make sure to have it correctly downloaded and installed!
+
+[h3]Description[/h3]
+A code mod that extends the camera zoom range and lets you adjust pan speed. Defaults match the normal game—change Zoom Min/Max and Pan Speed in the configuration menu (F1) if you want.
+
+[h3]Features[/h3]
+- Configurable camera zoom range (min and max)
+- Adjustable camera pan speed multiplier
+
+[h3]Version[/h3] read more on [url=https://github.com/iSamity/AirportCEO-PanoramaCEO/releases]Github[/url]
+- v1.0.0 - Initial release
+
+[h3]Developers[/h3]
+Read more on [url=https://github.com/iSamity/AirportCEO-PanoramaCEO]Github[/url] page.
