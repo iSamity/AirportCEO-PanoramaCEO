@@ -7,8 +7,6 @@ namespace PanoramaCEO.CameraZoom;
 
 internal static class CameraZoomService
 {
-    private static readonly Vector2 DefaultNormalMap = new(700f, 700f);
-    private static readonly Vector2 DefaultLargeMap = new(1050f, 700f);
     private const float DefaultZoomMax = 350f;
     private const float DefaultWheelMouseMultiplier = 10000f;
 
