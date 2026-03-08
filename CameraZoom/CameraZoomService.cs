@@ -75,7 +75,7 @@ internal static class CameraZoomService
         ApplyZoomToActiveCamera();
     }
 
-    private static void ApplyZoomToActiveCamera()
+    internal static void ApplyZoomToActiveCamera()
     {
         var cameraController = Singleton<CameraController>.Instance;
         if (cameraController == null)
