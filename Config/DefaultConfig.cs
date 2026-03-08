@@ -9,9 +9,11 @@ static class DefaultConfig
     internal static ConfigEntry<float> CameraZoomMin { get; private set; }
     internal static ConfigEntry<float> CameraZoomMax { get; private set; }
     internal static ConfigEntry<float> CameraPanSpeedMultiplier { get; private set; }
+    internal static ConfigEntry<bool> ShowPanoramaWelcomeMessage { get; private set; }
 
     public static void Setup()
     {
+        ShowPanoramaWelcomeMessage = ConfigReference.Bind("General", "Show PanoramaCEO Welcome Message", true, "Show welcome message explaining what the mod does on first run.");
         CameraZoomMin = ConfigReference.Bind("Camera", "Camera Zoom Min", 6f, "Closest zoom level (smaller value = closer). Default: 6");
         CameraZoomMin.SettingChanged += CameraZoomService.OnCameraZoomMinChanged;
         CameraZoomMax = ConfigReference.Bind("Camera", "Camera Zoom Max", 350f, "Furthest zoom level (larger value = further out). Default: 350");
