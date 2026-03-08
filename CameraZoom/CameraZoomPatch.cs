@@ -9,7 +9,8 @@ internal class CameraZoomPatch
     [HarmonyPostfix]
     static void Postfix(GenericMoveCamera __instance)
     {
-        var mainCamera = __instance.GetComponent<Camera>();
+        var cameraController = __instance.GetComponent<CameraController>();
+        var mainCamera = cameraController?.mainCamera ?? __instance.GetComponent<Camera>();
         CameraZoomService.ApplyCameraSettings(__instance, mainCamera);
     }
 }
