@@ -21,13 +21,11 @@ internal static class CameraZoomService
         genericMoveCamera.ZRangeMax = -DefaultConfig.CameraZoomMin.Value;
         genericMoveCamera.ZRangeMin = -DefaultConfig.CameraZoomMax.Value;
 
-        // Scale wheel mouse multiplier for extended zoom ranges (for scroll zoom speed)
+        // Always refresh wheel multiplier so reset/default values are applied immediately.
         float zoomRatio = DefaultConfig.CameraZoomMax.Value / DefaultZoomMax;
-        if (zoomRatio > 1f)
-        {
-            genericMoveCamera.WheelMouseMultiplier = DefaultWheelMouseMultiplier * zoomRatio;
-            Plugin.Logger.LogInfo($"[CameraZoomService] Wheel multiplier scaled to: {genericMoveCamera.WheelMouseMultiplier}");
-        }
+        float effectiveZoomRatio = Mathf.Max(1f, zoomRatio);
+        genericMoveCamera.WheelMouseMultiplier = DefaultWheelMouseMultiplier * effectiveZoomRatio;
+        Plugin.Logger.LogInfo($"[CameraZoomService] Wheel multiplier set to: {genericMoveCamera.WheelMouseMultiplier}");
 
         // Adjust far clip plane to accommodate extreme zoom out
         if (mainCamera != null)
