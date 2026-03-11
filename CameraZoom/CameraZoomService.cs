@@ -7,8 +7,8 @@ namespace PanoramaCEO.CameraZoom;
 
 internal static class CameraZoomService
 {
-    private const float MinZoomMin = 6f;
-    private const float MaxPanSpeedMultiplier = 50f;
+    internal const float MinZoomMin = 6f;
+    internal const float MaxPanSpeedMultiplier = 50f;
     private const float DefaultZoomMax = 350f;
     private const float DefaultWheelMouseMultiplier = 10000f;
 
