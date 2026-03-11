@@ -25,13 +25,14 @@ public static class Api
     private const float ReferenceMapSize = 200f;
 
     /// <summary>
-    /// Closest zoom level (smaller value = closer). Default 6. Min must be less than Max.
+    /// Closest zoom level (smaller value = closer). Default 6. Minimum 6 (nothing renders below that). Min must be less than Max.
     /// </summary>
     public static float CameraZoomMin
     {
         get => DefaultConfig.CameraZoomMin.Value;
         set
         {
+            value = Mathf.Max(value, CameraZoomService.MinZoomMin);
             var max = DefaultConfig.CameraZoomMax.Value;
             if (value >= max)
                 value = max - 1f;
@@ -57,12 +58,12 @@ public static class Api
     }
 
     /// <summary>
-    /// Multiplier for camera panning speed. Higher values = faster panning. Default 1.0.
+    /// Multiplier for camera panning speed. Higher values = faster panning. Maximum 50 (higher values are too fast). Default 1.0.
     /// </summary>
     public static float CameraPanSpeedMultiplier
     {
         get => DefaultConfig.CameraPanSpeedMultiplier.Value;
-        set => DefaultConfig.CameraPanSpeedMultiplier.Value = value;
+        set => DefaultConfig.CameraPanSpeedMultiplier.Value = Mathf.Min(value, CameraZoomService.MaxPanSpeedMultiplier);
     }
 
     /// <summary>

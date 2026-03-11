@@ -7,6 +7,8 @@ namespace PanoramaCEO.CameraZoom;
 
 internal static class CameraZoomService
 {
+    private const float MinZoomMin = 6f;
+    private const float MaxPanSpeedMultiplier = 50f;
     private const float DefaultZoomMax = 350f;
     private const float DefaultWheelMouseMultiplier = 10000f;
 
@@ -46,6 +48,13 @@ internal static class CameraZoomService
         var min = DefaultConfig.CameraZoomMin.Value;
         var max = DefaultConfig.CameraZoomMax.Value;
 
+        if (min < MinZoomMin)
+        {
+            DefaultConfig.CameraZoomMin.Value = MinZoomMin;
+            Plugin.Logger.LogWarning($"[CameraZoomService] Camera Zoom Min cannot be lower than 6 — nothing renders below that. Adjusted to: {MinZoomMin}");
+        }
+
+        min = DefaultConfig.CameraZoomMin.Value;
         // Min should be less than max (when positive, e.g., 6 < 350)
         // This ensures when converted to negative: -6 > -350
         if (min >= max)
@@ -56,6 +65,16 @@ internal static class CameraZoomService
         }
 
         ApplyZoomToActiveCamera();
+    }
+
+    internal static void OnCameraPanSpeedMultiplierChanged(object sender, EventArgs e)
+    {
+        var value = DefaultConfig.CameraPanSpeedMultiplier.Value;
+        if (value > MaxPanSpeedMultiplier)
+        {
+            DefaultConfig.CameraPanSpeedMultiplier.Value = MaxPanSpeedMultiplier;
+            Plugin.Logger.LogWarning($"[CameraZoomService] Camera Pan Speed Multiplier cannot exceed 50 — higher values are too fast. Adjusted to: {MaxPanSpeedMultiplier}");
+        }
     }
 
     internal static void OnCameraZoomMaxChanged(object sender, EventArgs e)
