@@ -58,7 +58,7 @@ public static class Api
     }
 
     /// <summary>
-    /// Multiplier for camera panning speed. Higher values = faster panning. Maximum 50 (higher values are too fast). Default 1.0.
+    /// Multiplier for camera panning speed. Higher values = faster panning. Maximum 30 (higher values are too fast). Default 1.0.
     /// </summary>
     public static float CameraPanSpeedMultiplier
     {

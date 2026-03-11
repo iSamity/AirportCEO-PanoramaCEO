@@ -18,7 +18,7 @@ static class DefaultConfig
         CameraZoomMin.SettingChanged += CameraZoomService.OnCameraZoomMinChanged;
         CameraZoomMax = ConfigReference.Bind("Camera", "Camera Zoom Max", 350f, "Furthest zoom level (larger value = further out). Default: 350");
         CameraZoomMax.SettingChanged += CameraZoomService.OnCameraZoomMaxChanged;
-        CameraPanSpeedMultiplier = ConfigReference.Bind("Camera", "Camera Pan Speed Multiplier", 1.0f, "Multiplier for camera panning speed. Higher values = faster panning. Maximum 50 because higher values are too fast. Default: 1.0");
+        CameraPanSpeedMultiplier = ConfigReference.Bind("Camera", "Camera Pan Speed Multiplier", 1.0f, "Multiplier for camera panning speed. Higher values = faster panning. Maximum 30 because higher values are too fast. Default: 1.0");
         CameraPanSpeedMultiplier.SettingChanged += CameraZoomService.OnCameraPanSpeedMultiplierChanged;
     }
 
