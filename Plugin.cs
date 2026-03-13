@@ -50,8 +50,6 @@ public class Plugin : BaseUnityPlugin
 
 #if DEBUG
         WatermarkUtils.Register(new WatermarkInfo(MyPluginInfo.PLUGIN_NAME, MyPluginInfo.PLUGIN_VERSION, false));
-#else
-        WatermarkUtils.Register(new WatermarkInfo("PC", MyPluginInfo.PLUGIN_VERSION, true));
 #endif
     }
 }
